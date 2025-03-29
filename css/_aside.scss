@@ -1,0 +1,118 @@
+@use '_common.scss';
+
+/*-------------------------------------------
+ASIDE
+-------------------------------------------*/
+aside{
+    margin-top: 1rem;
+	@include common.mq{
+		width: 26%;
+	}
+}
+
+.side-box{
+	margin-bottom: 4rem;
+    border: 1px solid common.$color-gray;
+    outline: 2px solid common.$color-gray;
+    outline-offset: 4px;
+    border-radius: 6px;
+    padding: .875rem;
+    position: relative;
+	&::before{
+		display: block;
+		width: 2rem;
+		height: 2rem;
+		text-align: center;
+		background: common.$color-white;
+		position: absolute;
+		top: -1rem;
+		left: 0;
+		right: 0;
+		margin: auto;
+	
+		/* Font Awesome */
+		font-family: 'Font Awesome 6 Free';
+		font-weight: 900;
+		color: common.$color-yellow;
+		font-size: 1.5rem;
+		content: '\f004';	
+	}
+	a:hover{
+		color: common.$color-pink;
+	}
+
+}
+
+
+/* 見出し */
+.side-box h3{
+    font-size: 1.875rem;
+    letter-spacing: .1rem;
+    text-align: center;
+    margin: .875rem 0 1.125rem;
+}
+
+/* リスト */
+.side-box{
+	li{
+		border-bottom: 1px dashed common.$color-gray;
+		padding: 1rem .25rem;
+		display: flex;
+		&:first-child{
+			padding-top: 0;
+		}
+		&:last-child{
+			padding-bottom: .5rem;
+			border-bottom: 0;	
+		}
+		&::before{
+			display: inline-block;
+			content: '';
+			background: common.$color-yellow;
+			width: 8px;
+			height: 8px;
+			margin: 6px 10px 0 0;
+			border-radius: 50%;		
+		}
+		a{
+			flex: 1;
+			line-height: 1.4;		
+		}	
+	}
+}
+
+
+/* 人気記事 */
+.popular-posts{
+    margin-bottom: 2rem;
+	@include common.mq{
+		position: sticky;
+        top: 1rem;
+	}
+}
+
+/* フォーム */
+.newsletter-form{
+    display: flex;
+    margin-top: 1.5rem;
+	input[type='email']{
+		border: 2px solid common.$color-gray;
+		border-radius: 10px 0 0 10px;
+		background: common.$color-white;
+		padding: 1rem;
+		width: 75%;
+		&::placeholder{
+			color: common.$color-gray;
+		}
+	}
+	input[type='submit']{
+		background: common.$color-yellow;
+		border-radius: 0 10px 10px 0;
+		cursor: pointer;
+		padding: 1.1rem;
+		margin-left: -5px;
+		&:hover{
+			background: common.$color-pink;
+		}
+	}
+}

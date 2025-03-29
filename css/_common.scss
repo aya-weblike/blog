@@ -1,0 +1,144 @@
+/*-------------------------------------------
+変数管理
+-------------------------------------------*/
+$color-loading: #ed8;
+$color-title: #ffdab9;
+$color-black: #3c3c3c;
+$color-strong-pink: #e87f7f;
+$color-pink: #eda1a1;
+$color-yellow: #f5deb3;
+$color-blown: #A0522D;
+$color-white: #fcfcfa;
+$color-gray: #ccc;
+
+/*-------------------------------------------
+メディアクエリ
+-------------------------------------------*/
+$bp: 600px; // ブレイクポイント
+
+@mixin mq{
+	@media (min-width: ($bp)) {
+		@content;
+	}
+}
+
+/*-------------------------------------------
+共通部分
+-------------------------------------------*/
+html{
+    font-size: 100%;    
+}
+
+body{
+    color: $color-black;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    background-image: url(../img/bg.jpg);
+}
+
+img{
+	width: 100%;
+    vertical-align: bottom;
+}
+
+p{
+    line-height: 1.6;
+}
+
+.container{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background: $color-white;
+	@include mq{
+		display: flex;
+        justify-content: space-between;
+        margin-bottom: 4rem;
+        padding: 1rem 2.5rem 2.5rem;
+	}
+}
+
+a{
+    text-decoration: none;
+}
+
+/*-------------------------------------------
+LOADING
+-------------------------------------------*/
+@mixin loading{
+	background: $color-loading;
+	position: fixed;
+	width: 50vw;
+	height: 100vh;
+	z-index: 999;
+}
+
+#loading-left{
+	left: 0;
+	transform-origin: left top;
+	@include loading;
+}
+
+#loading-right{
+	right: 0;
+	transform-origin: right top;
+	@include loading;
+}
+
+
+/*-------------------------------------------
+HEADER
+-------------------------------------------*/
+header{
+    max-width: 1000px;
+    margin: 2.5rem auto 0;
+    background: $color-white;
+    height: 170px;
+	@include mq{
+		height: 190px;
+	}
+}
+
+.page{
+	&-title{
+		width: 200px;
+		margin-inline: auto;
+		a{
+			display: block;
+		}
+	}
+	&-desc{
+		font-size: 1rem;
+		margin-bottom: 0;
+		text-align: center;
+		@include mq{
+			font-size: 1.125rem;
+			margin-bottom: 4rem;	
+		}	
+	}
+}
+
+
+/*-------------------------------------------
+FOOTER
+-------------------------------------------*/
+
+footer{
+    background: $color-gray;
+    text-align: center;
+    padding: 3rem;
+	ul{
+		display: flex;
+		justify-content: center;
+		margin-bottom: 2rem;
+	}
+	li{
+		margin:  0 12px;
+	}
+	a:hover{
+		color: $color-pink;
+	}
+	small{
+		font-size: .875rem;
+	}
+}

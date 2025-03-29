@@ -1,0 +1,176 @@
+@use '_common.scss';
+@use '_aside.scss';
+
+/*-------------------------------------------
+MAIN
+-------------------------------------------*/
+main{
+    margin-bottom: 3rem;
+	@include common.mq{
+		width: 68%;
+        margin-bottom: 0;
+	}
+}
+
+/* 記事一覧 */
+.post{
+	&-home{
+		margin-bottom: 3rem;
+	}
+	&-title {
+		h2{
+			display: inline-block;
+			margin-bottom: 1.5rem;
+			background-image: linear-gradient(transparent 50%, common.$color-title 50%);
+			font-size: 1.3rem;
+			font-family: 'M PLUS Rounded 1c', sans-serif;
+			font-weight: 500;
+			line-height: 1.5;
+		}
+		a{
+			color: common.$color-black;
+		}
+		a:hover{
+			color: common.$color-pink;
+		}
+	}
+	&-thumb{
+		margin: 0 0 1rem 0;
+		position: relative;
+		@include common.mq{
+			margin: 0 3rem 1rem 0;
+			shape-outside: circle();
+			float: left;	
+		}
+	}
+	&-date{
+		font-size: 1.2rem;
+		letter-spacing: .1rem;
+		font-family: 'M PLUS Rounded 1c', sans-serif;
+		background: common.$color-yellow;
+		border-radius: 30% 60% 50% 70%/50%;
+		color: common.$color-blown;
+		text-align: center;
+		position: absolute;
+		left: 0;
+		top: -10px;
+		width: 80px;
+		height: 80px;
+		span{
+			display: block;
+			width: 60%;
+			margin: 4px auto 0;
+			border-bottom: 2px common.$color-blown dotted;
+			padding-bottom: 2px;
+			font-size: 1rem;
+		}
+	}
+	&-img{
+		width: 300px;
+		height: 260px;
+		object-fit: cover;
+		border-radius: 40% 70% 50% 30%/50%;
+	}
+}
+
+
+/* ボタン */
+.btn-wrap{
+    text-align: right;
+}
+
+.btn{
+    margin-top: 1rem;
+    color: common.$color-white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background: common.$color-pink;
+    box-shadow: 0 3px common.$color-strong-pink;
+    position: relative;
+    display: inline-block;
+    top: -2px;
+    padding: 10px 20px;
+	&:hover{
+		box-shadow: 0 1px common.$color-strong-pink;
+		top: 1px;
+	}
+}
+
+/* ページ送り */
+.pagination{
+	display: flex;
+    justify-content: center;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+	a:hover{
+		background: common.$color-pink;
+		color: common.$color-white;
+	}
+	a,
+	.current{
+    border-radius: 50%;
+    padding-top: 4px;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin: 0 6px;
+	}
+	.current{
+		background: common.$color-gray;
+		color: common.$color-white;
+	}
+}
+
+
+/*-------------------------------------------
+SINGLE-PAGE
+-------------------------------------------*/
+@mixin single-page-title{
+	margin: 3rem 0 1rem;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+	font-weight: 500;
+	font-size: 1.5rem;
+}
+
+#single-page {
+	article{
+		h3{
+			border-top: common.$color-gray dotted 2px;
+			border-bottom: common.$color-gray dotted 2px;
+			padding: .75rem;
+			line-height: 1.4;		
+			@include single-page-title;
+		}
+		h4{
+			@include single-page-title;
+		}
+		// リスト
+		ol li{
+			margin: .5rem 0;
+			counter-increment: list;
+			&::before{
+				content: counter(list);
+				color: common.$color-strong-pink;
+				display: inline-block;
+				margin-right: 8px;
+			}
+		}
+	}
+}
+
+.single-page-fv img{
+	max-width: 100%;
+	border-radius: 50px;
+}
+
+
+/* 囲み枠 */
+#single-page .recommend-point{
+	background: common.$color-yellow;
+	padding: 1.5rem;
+	max-width: 400px;
+	margin: 2rem auto;
+	border-radius: 15rem 1rem 8rem 1rem / 1rem 12rem 1rem 12rem;
+	border: 2px dashed common.$color-strong-pink;
+}
